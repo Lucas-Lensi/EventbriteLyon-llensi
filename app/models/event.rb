@@ -12,16 +12,14 @@ class Event < ApplicationRecord
   has_many :participants, through: :attendances
 
   def is_future?
-    self.start_date > Date.today
-#    if start_date < Date.today
-#      errors.add(:start_date, "can't be in the past")
-#    end
+    if self.start_date > Date.today
+      errors.add(:start_date, "can't be in the past")
+    end
   end
 
   def is_multiple_of_5?
-    self.duration % 5 == 0
-#    unless duration % 5 == 0
-#      errors.add(:duration, "can't be in the past")
-#    end
+    unless self.duration % 5 == 0
+      self.errors[:base] << "Number must be divisible by 5!"
+    end
   end
 end
