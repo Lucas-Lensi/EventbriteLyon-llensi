@@ -36,7 +36,7 @@
                   Profile
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <%= link_to "Mon profile", new_user_session_path, class: "dropdown-item" %>
+                  <%= link_to "Mon profile", user_path(current_user.id), class: "dropdown-item" %>
                   <div class="dropdown-divider"></div>
                   <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
                 </div>

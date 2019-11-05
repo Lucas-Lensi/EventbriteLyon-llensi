@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <section class="jumbotron text-center mb-0">
+      <div class="container mt-5 mt-md-4 mt-lg-1 pt-5 pt-md-4 pt-lg-3" id="jumjum">
+        <div class="row justify-content-md-center">
+          <div class="col-sm-6 col-sm-offset-3 mb-3">
+            <h1 class="text-center">Voici vos informations</h1>
+            <br><br>
+            <div class="card">
+              <div class="card-body">
+                <p class="card-text mt-3 mb-3">
+                  <B>Name :</B> <%= @user.first_name %> <%= @user.last_name %><br><br>
+                  <B>Email :</B> <%= @user.email %><br><br>
+                  <B>description :</B> <%= @user.description %>
+                  <br><br>
+                  <h1 class="text-center">Vos evenements :</h1>
+                  <% @user.events.each do |event| %>
+                    <div class="card my-4 box-shadow mx-4">
+                      <img class="card-img-top" <%= image_tag "concert.jpg"%>
+                      <div class="card-body">
+                        <h4 class="card-title"><%= event.title %></h4>
+                        <p class="card-text"><%= event.description %></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a href="<%= event_path(event.id) %>"><button type="button" class="btn btn-sm btn-outline-secondary">Show</button></a>
+                            <a href="<%= event_path(event.id) %>"><button type="button" class="btn btn-sm btn-outline-secondary">Show</button></a>
+                          </div>
+                          <small class="text-muted"><%= event.start_date %></small>
+                        </div>
+                      </div>
+                    </div>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  </body>
+</html>
