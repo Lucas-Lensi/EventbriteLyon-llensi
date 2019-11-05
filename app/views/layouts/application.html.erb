@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>EventbriteLyon</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
     <!DOCTYPE html>
     <html>
       <head>
@@ -35,16 +24,16 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" <%= link_to "Welcome", new_user_session_path %><span class="sr-only">(current)</span></a>
+                <a class="nav-link" <%= link_to "Welcome", event_index_path %><span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" <%= link_to "Create Event", new_user_session_path %></a>
+                <a class="nav-link" <%= link_to "Create Event", new_event_path %></a>
               </li>
             </ul>
             <% if user_signed_in? %>
               <div class="btn-group">
                 <button type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Se connecter
+                  Profile
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                   <%= link_to "Mon profile", new_user_session_path, class: "dropdown-item" %>
@@ -73,6 +62,3 @@
         <%= yield %>
       </body>
     </html>
-    <%= yield %>
-  </body>
-</html>
