@@ -9,7 +9,7 @@ User.destroy_all
 Event.destroy_all
 Attendance.destroy_all
 
-100.times do |index|
+30.times do |index|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   password = Faker::Internet.password
@@ -24,7 +24,7 @@ Attendance.destroy_all
   puts "#{index} users created"
 end
 
-30.times do |index|
+20.times do |index|
   Event.create(
     start_date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
     duration: 120,
