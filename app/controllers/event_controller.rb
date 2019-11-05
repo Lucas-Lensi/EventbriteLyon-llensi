@@ -24,10 +24,10 @@ class EventController < ApplicationController
     )
 
     if @create_event.save
-      flash[:success] = "BRAVO, votre potin a bien été uploadé"
+      flash[:success] = "Votre event a bien été uploadé"
       redirect_to event_path(@create_event.id)
     else
-      flash[:error] = "ROLLBACK, hey ! les validations ne sont pas passées, je te renvoie une ou plusieurs erreurs"
+      flash[:error] = "ROLLBACK, entrées invalide"
       render :new
     end
   end
