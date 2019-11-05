@@ -32,6 +32,6 @@ end
     description: Faker::Lorem.paragraph,
     price: Faker::Number.between(from: 1, to: 1000),
     location: "#{Faker::Address.street_address}, Lyon",
-    admin: User.find(rand(1..100))
+    admin: User.find(rand(1..30))
   )
 end
