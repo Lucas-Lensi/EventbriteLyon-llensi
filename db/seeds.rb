@@ -12,9 +12,11 @@ Attendance.destroy_all
 100.times do |index|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
+  password = Faker::Internet.password
   User.create(
     email: "#{first_name.downcase}.#{last_name.downcase}@yopmail.com",
-    encrypted_password: Faker::Internet.password,
+    password: password,
+    password_confirmation: password,
     description: Faker::Lorem.paragraph,
     first_name: first_name,
     last_name: last_name
