@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <section class="container">
+      <div class="row mt-5 mb-3">
+        <div class="col">
+          <h1 class="text-center">Editer vos informations</h1>
+          <br><br>
+        </div>
+      </div>
+      <div class="container">
+        <%= form_for @user do |f|%>
+        <div class="row">
+          <div class="col form-group">
+            <%= f.label :Prenom %><br>
+            <%=f.text_field :first_name, value: @user.first_name, class: 'form-control'%>
+          </div>
+          <div class="col form-group">
+            <%= f.label :Nom %><br>
+            <%=f.text_field :last_name, value: @user.last_name, class: 'form-control'%>
+          </div>
+        </div>
+          <div class="form-group">
+            <%= f.label :Description %><br>
+            <%=f.text_area :description, value: @user.description, class: 'form-control'%>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Editer</button>
+          </div>
+        <%end%>
+
+    </section>
+  </body>
+</html>

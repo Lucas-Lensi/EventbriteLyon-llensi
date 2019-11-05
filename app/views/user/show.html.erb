@@ -5,41 +5,66 @@
     <title></title>
   </head>
   <body>
-    <section class="jumbotron text-center mb-0">
-      <div class="container mt-5 mt-md-4 mt-lg-1 pt-5 pt-md-4 pt-lg-3" id="jumjum">
-        <div class="row justify-content-md-center">
-          <div class="col-sm-6 col-sm-offset-3 mb-3">
-            <h1 class="text-center">Voici vos informations</h1>
-            <br><br>
-            <div class="card">
-              <div class="card-body">
-                <p class="card-text mt-3 mb-3">
-                  <B>Name :</B> <%= @user.first_name %> <%= @user.last_name %><br><br>
-                  <B>Email :</B> <%= @user.email %><br><br>
-                  <B>description :</B> <%= @user.description %>
-                  <br><br>
-                  <h1 class="text-center">Vos evenements :</h1>
-                  <% @user.events.each do |event| %>
-                    <div class="card my-4 box-shadow mx-4">
-                      <img class="card-img-top" <%= image_tag "concert.jpg"%>
-                      <div class="card-body">
-                        <h4 class="card-title"><%= event.title %></h4>
-                        <p class="card-text"><%= event.description %></p>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="btn-group">
-                            <a href="<%= event_path(event.id) %>"><button type="button" class="btn btn-sm btn-outline-secondary">Show</button></a>
-                            <a href="<%= event_path(event.id) %>"><button type="button" class="btn btn-sm btn-outline-secondary">Show</button></a>
-                          </div>
-                          <small class="text-muted"><%= event.start_date %></small>
-                        </div>
-                      </div>
-                    </div>
-                  <%end%>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="container">
+      <h1 class="text-center py-5">Vos informations</h1>
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						<%= @first_name %> <%= @last_name %>
+					</div>
+					<div class="profile-usertitle-job">
+						Developer
+					</div>
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+          <a href="<%= edit_user_path %>"><button type="button" class="btn btn-success btn-sm">Edit info</button></a>
+          <a href="<%= edit_user_registration_path %>"><button type="button" class="btn btn-danger btn-sm">Edit login</button></a>
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+        <div class="profile-description">
+				      <p><span class="profile-description-title">Email : </span><br><%= @user.email %></p>
+              <br>
+              <p><span class="profile-description-title">Description : </span><br><%= @user.description %></p>
         </div>
-    </section>
+				<!-- END MENU -->
+			</div>
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+              <h1 class="text-center">Vos evenements :</h1>
+              <% @user.events.each do |event| %>
+                <div class="card my-4 box-shadow mx-4">
+                  <img class="card-img-top" <%= image_tag "concert.jpg"%>
+                  <div class="card-body">
+                    <h4 class="card-title"><%= event.title %></h4>
+                    <p class="card-text"><%= event.description %></p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a href="<%= event_path(event.id) %>"><button type="button" class="btn btn-sm btn-outline-secondary">Show</button></a>
+                        <a href="<%= event_path(event.id) %>"><button type="button" class="btn btn-sm btn-outline-secondary">Show</button></a>
+                      </div>
+                      <small class="text-muted"><%= event.start_date %></small>
+                    </div>
+                  </div>
+                </div>
+              <%end%>
+            </div>
+		</div>
+	</div>
+</div>
+
+<br>
+<br>
   </body>
 </html>
