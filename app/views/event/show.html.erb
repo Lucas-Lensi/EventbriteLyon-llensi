@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <section class="container">
+      <div class="row mt-5 mb-3">
+        <div class="col">
+          <h1 class="text-center">Voici les informations de l'event</h1>
+          <br><br>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <p class="card-title"><%= @event.title %></p>
+          <div class="card-text">
+            <p>description : <%= @event.description %></p><br>
+            <p>Date : <%= @event.start_date %></p><br>
+            <p>Durée : <%= @event.duration %></p><br>
+            <p>Prix : <%= @event.price %> $</p><br>
+            <p>Lieu : <%= @event.location %></p><br>
+            <p>Créateur : <%= @event.admin.first_name %></p><br>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
