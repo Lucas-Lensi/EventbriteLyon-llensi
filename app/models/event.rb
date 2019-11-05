@@ -12,7 +12,7 @@ class Event < ApplicationRecord
   has_many :participants, through: :attendances
 
   def is_future?
-    if self.start_date > Date.today
+    unless self.start_date > Date.today
       errors.add(:start_date, "can't be in the past")
     end
   end
