@@ -1,5 +1,5 @@
 class Attendance < ApplicationRecord
-  after_create :info_admin_send
+  #after_create :info_admin_send
 
   belongs_to :participant, class_name: "User"
   belongs_to :event

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center py-5">Votre évènements</h1>
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						<%= @event.title %>
+					</div>
+					<div class="profile-usertitle-job">
+						<%= @event.start_date %>
+					</div>
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+          <a href="<%= edit_event_path(@event.id) %>"><button type="button" class="btn btn-success btn-sm">Edit event</button></a>
+          <a href="<%= event_path(@event.id) %>" class="btn btn-danger btn-sm" data-confirm="Are you sure ?" data-method="delete">Cancel event</a>
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+        <div class="profile-description">
+				      <p><span class="profile-description-title">Durée : </span><br><%= @event.duration %> minutes</p>
+              <br>
+              <p><span class="profile-description-title">Lieu : </span><br><%= @event.location %></p>
+              <br>
+              <p><span class="profile-description-title">Prix : </span><br><%= @event.price %> €</p>
+              <br>
+              <p><span class="profile-description-title">Description : </span><br><%= @event.description %></p>
+        </div>
+				<!-- END MENU -->
+			</div>
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+              <div class="text-center my-4">
+                <h2><%= @event.attendances.length %> participants</h2>
+              </div>
+              <div class="container">
+                <table class="table table-hover table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Prénom</th>
+                      <th scope="col">Nom</th>
+                      <th scope="col">Email</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @event.attendances.each_with_index do |attendance, index|%>
+                    <tr>
+                      <th scope="row"><%=index%></th>
+                      <td><%= attendance.participant.first_name %></td>
+                      <td><%= attendance.participant.last_name %></td>
+                      <td><%= attendance.participant.email %></td>
+                    </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+		</div>
+	</div>
+</div>
+
+<br>
+<br>
+  </body>
+</html>

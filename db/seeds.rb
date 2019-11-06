@@ -9,6 +9,15 @@ User.destroy_all
 Event.destroy_all
 Attendance.destroy_all
 
+User.create(
+  first_name: 'Lucas',
+  last_name: 'Lensi',
+  email: 'lucas.lensi@yopmail.com',
+  password: 'password',
+  password_confirmation: 'password',
+  description: 'compte test'
+)
+
 30.times do |index|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
@@ -32,6 +41,13 @@ end
     description: Faker::Lorem.paragraph,
     price: Faker::Number.between(from: 1, to: 1000),
     location: "#{Faker::Address.street_address}, Lyon",
-    admin: User.find(rand(1..30))
+    admin: User.find(rand(1..31))
+  )
+end
+
+100.times do |index|
+  Attendance.create(
+    event: Event.find(rand(1..20)),
+    participant: User.find(rand(1..31))
   )
 end
