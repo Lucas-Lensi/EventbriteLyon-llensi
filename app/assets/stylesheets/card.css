@@ -1,0 +1,29 @@
+
+.card{
+  border-radius: 20px;
+
+}
+
+.card-img-top{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.map {
+  margin: 0 auto;
+  width: 250px;
+  border-radius: 20px;
+}
+
+iframe {
+  border-radius: 10px
+}
+
+#a-card{
+  text-decoration: none;
+  color: #3E3F3A;
+}
+
+#a-card:hover .card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
