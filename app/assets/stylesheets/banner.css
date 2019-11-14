@@ -1,6 +1,6 @@
 #banner{
   border-radius: 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(asset_path("ticket.jpg"));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(image_path("ticket.jpg"));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
