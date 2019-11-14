@@ -1,0 +1,47 @@
+<div class="container mb-5">
+  <div class="card mx-auto mt-5" style="max-width: 60rem;">
+    <article class="card-body">
+      <h4 class="card-title text-center mb-4 mt-1">Create Event</h4>
+      <hr>
+      <%= form_tag url_for(action: 'create'), method: "post" do %>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= label_tag 'title' %>
+            <%= text_field_tag 'title', nil, placeholder: "Entrer le titre de l'evenement", class: 'form-control' %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= label_tag 'Prix' %>
+            <%= number_field_tag 'price', nil, in: 1..1000, placeholder: "price", class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag 'description' %>
+          <%= text_area_tag 'description', nil, placeholder: "Entrer la description de l'evenement", class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag 'Lieu' %>
+          <%= text_field_tag 'location', nil, placeholder: "Entrer le lieu", class: 'form-control' %>
+        </div>
+
+        <div class="form-row">
+
+          <div class="form-group col-md-6">
+            <%= label_tag 'Date' %><br>
+            <%= date_field_tag 'start_date', nil, class: 'form-control' %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= label_tag 'Durée' %>
+            <%= number_field_tag 'duration', nil, min: 5, step: 5, placeholder: "multiple de 5", class: 'form-control' %>
+          </div>
+
+        </div>
+        <%= submit_tag "Create Post", class: "btn btn-primary" %>
+        <% end %>
+   </article>
+ </div>
+</div>

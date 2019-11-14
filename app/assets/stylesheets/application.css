@@ -12,4 +12,77 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
  */
+
+/**NAVBAR**/
+
+#ma-nav{
+  background-color: red;
+}
+
+ /**FOOTER**/
+
+ footer{
+   background-color: #3E3F3A;
+   color: #F8F5F0;
+   width: 100%;
+ }
+
+ .my-col{
+   line-height: 2rem;
+   padding-right: 10px;
+ }
+
+/**BANNER**/
+
+#banner{
+  border-radius: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("ticket.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+  color: #F8F5F0
+}
+
+#title-main{
+  font-size: 10vw;
+  letter-spacing: 3px;
+  text-shadow: 3px 2px #325D88;
+}
+
+#under-title{
+  font-size: 20px;
+}
+
+/**CARD**/
+
+.card{
+  border-radius: 20px;
+
+}
+
+.card-img-top{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.map {
+  margin: 0 auto;
+  width: 250px;
+  border-radius: 20px;
+}
+
+iframe {
+  border-radius: 10px
+}
+
+#a-card{
+  text-decoration: none;
+  color: #3E3F3A;
+}
+
+#a-card:hover .card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

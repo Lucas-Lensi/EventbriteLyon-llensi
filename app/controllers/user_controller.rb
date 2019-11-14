@@ -17,7 +17,7 @@ class UserController < ApplicationController
       flash[:success] = "Votre compte a bien été modifié"
       redirect_to user_path(@user.id)
     else
-      flash[:error] = "ROLLBACK, erreur sur les champs de modifications"
+      flash.now[:error] = @user.errors.full_messages.to_sentence
       render :edit
     end
   end

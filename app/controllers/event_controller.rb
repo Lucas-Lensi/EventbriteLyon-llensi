@@ -27,7 +27,7 @@ class EventController < ApplicationController
       flash[:success] = "Votre event a bien été uploadé"
       redirect_to event_path(@create_event.id)
     else
-      flash[:error] = "ROLLBACK, entrées invalide"
+      flash.now[:error] = @event.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -43,7 +43,7 @@ class EventController < ApplicationController
       flash[:success] = "Votre event a bien été modifié"
       redirect_to event_attendance_index_path(@event.id)
     else
-      flash[:error] = "Une erreur s'est produite, vérifié les informations"
+      flash.now[:error] = @event.errors.full_messages.to_sentence
       render :edit
     end
   end

@@ -1,0 +1,84 @@
+<div class="to-back">
+
+    </div>
+    <div class="container mt-5 event-page" id="eventpage">
+      <div class="row">
+        <div class="col-8" id="photo-event">
+        </div>
+        <div class="col-4 pt-4" id="right-event">
+          <h3 class="text-center border-bottom pb-4 mb-4"><%= @event.title %></h3>
+          <p><%= @event.admin.first_name %></p>
+          <button class="btn btn-primary" type="button" name="button">Button</button>
+        </div>
+      </div>
+      <div class="row border-top border-left border-right py-3 event-page">
+        <div class="col-2">
+          <i class="far fa-heart"></i>
+        </div>
+        <div class="col-8">
+        </div>
+        <div class="col-2">
+
+          <%= form_tag event_attendance_index_path(@event.id) do %>
+            <article>
+              <% if flash[:error].present? %>
+                <div id="error_explanation">
+                  <p><%= flash[:error] %></p>
+                </div>
+              <% end %>
+            </article>
+
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description="Paiement pour votre inscription à l'évènement"
+                    data-amount="500"
+                    data-currency="eur"
+                    data-locale="auto"></script>
+          <% end %>
+
+
+
+        </div>
+      </div>
+        <div class="row border-top border-left border-right pt-5 event-page">
+          <div class="col-md-8 px-md-5">
+            <h4 class="mx-md-5">Description</h4>
+            <p class="mx-md-5 mt-3"><%= @event.description %></p>
+          </div>
+          <div class="col-md-4">
+            <h4>Date et heure</h4>
+            <p>
+              <%= @event.start_date %><br>
+              <%= @event.duration %> minutes
+            </p>
+            <h4 class="mt-5">Adresse</h4>
+            <p>
+              <%= @event.location %><br>
+            </p>
+          </div>
+          <div class="container mx-md-5 my-5 border-top border-bottom event-page">
+            <center>
+              <div class="row">
+                <div class="col my-5">
+                  <i class="fab fa-twitter-square mr-sm-5" style="font-size: 6em"></i>
+                  <i class="fab fa-google-plus-square mx-sm-5" style="font-size: 6em"></i>
+                  <i class="fab fa-facebook ml-sm-5" style="font-size: 6em"></i>
+                </div>
+              </div>
+            </center>
+          </div>
+        </div>
+        </div>
+        <div class="container border-bottom border-left border-right mb-5" id="bottom">
+        <h4 class="text-center mb-5">Allez-y</h4>
+        <div class="row">
+          <div style="width: 100%;position: relative;">
+            <iframe id="mamap" width="100%" height="440" src="https://maps.google.com/maps?width=800&amp;height=440&amp;hl=en&amp;q=Lyon%2C%20France+(Lieu%20Evennt)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <div style="position: absolute;width: 100%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;">
+              <small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="http://triptoamsterdam.org/zh/">googlemapsgen (zh)</a> & <a href="https://www.buyinstagramfollowersreviews.net/">one of the best ways to also increase your followers</a></small>
+            </div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+          </div><br />
+        </div>
+        <p class="text-muted text-center my-5">All right reserved</p>
+
+      </div>
